@@ -1,0 +1,34 @@
+[
+  {
+    "id": 1,
+    "name": "John Doe",
+    "email": "john@example.com",
+    "role": "Frontend Developer",
+    "department": "Engineering",
+    "skills": ["Angular", "TypeScript", "HTML", "CSS"]
+  },
+  {
+    "id": 2,
+    "name": "Jane Smith",
+    "email": "jane@example.com",
+    "role": "Backend Developer",
+    "department": "Engineering",
+    "skills": ["Node.js", "Express.js", "MongoDB", "REST API"]
+  },
+  {
+    "id": 3,
+    "name": "Robert Brown",
+    "email": "robert@example.com",
+    "role": "Product Designer",
+    "department": "Design",
+    "skills": ["Figma", "UI/UX", "Wireframing", "Prototyping"]
+  },
+  {
+    "id": 4,
+    "name": "Emily Davis",
+    "email": "emily@example.com",
+    "role": "QA Engineer",
+    "department": "Quality Assurance",
+    "skills": ["Manual Testing", "Selenium", "Jest", "API Testing"]
+  }
+]

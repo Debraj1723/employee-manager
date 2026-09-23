@@ -1,0 +1,148 @@
+<form [formGroup]="employeeForm" (ngSubmit)="onSubmit()">
+
+  <h2>Add New Employee</h2>
+  <p class="form-subtitle">Enter the employee details below.</p>
+
+  <!-- Employee Details -->
+  <div class="form-grid">
+
+    <!-- Name -->
+    <div class="form-field">
+      <label for="name">Name</label>
+
+      <input
+        id="name"
+        type="text"
+        formControlName="name"
+        placeholder="Enter employee name"
+      />
+
+      @if (employeeForm.controls.name.touched) {
+        @if (employeeForm.controls.name.hasError('required')) {
+          <small class="error">Name is required</small>
+        } @else if (employeeForm.controls.name.hasError('minlength')) {
+          <small class="error">Name must be at least 3 characters</small>
+        } @else if (employeeForm.controls.name.hasError('maxlength')) {
+          <small class="error">Name cannot exceed 26 characters</small>
+        }
+      }
+    </div>
+
+    <!-- Email -->
+    <div class="form-field">
+      <label for="email">Email</label>
+
+      <input
+        id="email"
+        type="email"
+        formControlName="email"
+        placeholder="Enter email address"
+      />
+
+      @if (employeeForm.controls.email.touched) {
+        @if (employeeForm.controls.email.hasError('required')) {
+          <small class="error">Email is required</small>
+        } @else if (employeeForm.controls.email.hasError('email')) {
+          <small class="error">Email is invalid</small>
+        }
+      }
+    </div>
+
+    <!-- Role -->
+    <div class="form-field">
+      <label for="role">Role</label>
+
+      <input
+        id="role"
+        type="text"
+        formControlName="role"
+        placeholder="e.g. Full Stack Developer"
+      />
+
+      @if (
+        employeeForm.controls.role.touched &&
+        employeeForm.controls.role.hasError('required')
+      ) {
+        <small class="error">Role is required</small>
+      }
+    </div>
+
+    <!-- Department -->
+    <div class="form-field">
+      <label for="department">Department</label>
+
+      <input
+        id="department"
+        type="text"
+        formControlName="department"
+        placeholder="e.g. Engineering"
+      />
+
+      @if (
+        employeeForm.controls.department.touched &&
+        employeeForm.controls.department.hasError('required')
+      ) {
+        <small class="error">Department is required</small>
+      }
+    </div>
+
+  </div>
+
+  <!-- Skills -->
+  <div class="skills-section" formArrayName="skills">
+
+    <div class="section-header">
+      <div>
+        <label>Skills</label>
+        <p>Add the employee's technical skills.</p>
+      </div>
+
+      <button
+        type="button"
+        class="add-skill-btn"
+        (click)="addSkills()"
+      >
+        + Add Skill
+      </button>
+    </div>
+
+    @if (employeeForm.controls.skills.controls.length === 0) {
+      <p class="empty-skills">
+        No skills added yet.
+      </p>
+    }
+
+    @for (
+      skill of employeeForm.controls.skills.controls;
+      track $index
+    ) {
+      <div class="skill-row">
+
+        <input
+          type="text"
+          [formControlName]="$index"
+          placeholder="Enter a skill"
+        />
+
+        <button
+          type="button"
+          class="remove-btn"
+          (click)="removeSkill($index)"
+        >
+          Remove
+        </button>
+
+      </div>
+    }
+
+  </div>
+
+  <!-- Submit -->
+  <button
+    type="submit"
+    class="submit-btn"
+  >
+    Add Employee
+  </button>
+
+</form>

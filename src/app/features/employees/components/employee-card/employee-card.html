@@ -1,0 +1,39 @@
+<div class="employee-card">
+  <div class="profile-section">
+    <div class="avatar">
+      {{ employee.name.charAt(0).toUpperCase() }}
+    </div>
+
+    <div class="profile-info">
+      <h3>{{ employee.name }}</h3>
+      <p>{{ employee.email }}</p>
+    </div>
+  </div>
+
+  <div class="details-section">
+    <div class="detail">
+      <span class="detail-label">ROLE</span>
+      <span class="detail-value">{{ employee.role }}</span>
+    </div>
+
+    <div class="detail">
+      <span class="detail-label">DEPARTMENT</span>
+      <span class="detail-value">{{ employee.department }}</span>
+    </div>
+  </div>
+
+  <div class="skills-section">
+    <span class="detail-label">SKILLS</span>
+
+    <div class="skills">
+      @for (skill of employee.skills; track $index) {
+        <span class="skill">{{ skill }}</span>
+      }
+    </div>
+  </div>
+
+  <button class="view-btn" type="button" (click)="viewDetails.emit(employee)">
+    View Details
+    <span>→</span>
+  </button>
+</div>

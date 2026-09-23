@@ -1,0 +1,45 @@
+<div class="page-container">
+  <div class="page-header">
+    <div class="header-content">
+      <span class="eyebrow">WORKSPACE</span>
+      <h1>Employee Management</h1>
+      <p>Manage your team members and employee information.</p>
+    </div>
+
+    <button class="add-employee-btn" type="button" (click)="createEmployee()">
+      <span>+</span>
+      Add Employee
+    </button>
+  </div>
+
+  <div class="toolbar">
+    <div class="employee-count">
+      <span class="count-number">{{ employees().length }}</span>
+      <span class="count-label">Employees</span>
+    </div>
+
+    <div class="search-box">
+      <span class="search-icon">⌕</span>
+      <input type="text" placeholder="Search employees..." />
+    </div>
+  </div>
+
+  <div class="employee-list">
+    @for (employee of employees(); track employee.id) {
+      <div class="employee-wrapper">
+        <app-employee-card [employee]="employee" (viewDetails)="onViewDetails($event)">
+        </app-employee-card>
+      </div>
+    }
+
+    @if (employees().length === 0) {
+      <div class="empty-state">
+        <div class="empty-icon">👥</div>
+        <h3>No employees found</h3>
+        <p>Start by adding your first employee.</p>
+
+        <button class="empty-add-btn" type="button">+ Add Employee</button>
+      </div>
+    }
+  </div>
+</div>

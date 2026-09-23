@@ -1,0 +1,141 @@
+form {
+  max-width: 680px;
+  margin: 50px auto;
+  padding: 36px;
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 18px;
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.08);
+}
+
+/* Two-column layout */
+
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 22px 20px;
+}
+
+.form-grid > div {
+  margin-bottom: 0;
+}
+
+label {
+  display: block;
+  margin-bottom: 8px;
+  color: #1f2937;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+input {
+  width: 100%;
+  padding: 12px 14px;
+  box-sizing: border-box;
+  border: 1px solid #d1d5db;
+  border-radius: 9px;
+  background: #f9fafb;
+  color: #111827;
+  font-size: 14px;
+  transition: 0.2s ease;
+}
+
+input::placeholder {
+  color: #9ca3af;
+}
+
+input:focus {
+  outline: none;
+  border-color: #2563eb;
+  background: #ffffff;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+}
+
+form small {
+  display: block;
+  margin-top: 6px;
+  color: #dc2626;
+  font-size: 12px;
+}
+
+/* Skills */
+
+form > div:not(.form-grid) {
+  margin-top: 24px;
+}
+
+.skill-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.skill-row input {
+  flex: 1;
+}
+
+.skill-row button {
+  flex-shrink: 0;
+}
+
+/* Buttons */
+
+button {
+  border: none;
+  border-radius: 8px;
+  padding: 10px 16px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+button[type="button"] {
+  background: #111827;
+  color: #ffffff;
+}
+
+button[type="button"]:hover {
+  background: #374151;
+}
+
+.skill-row button {
+  background: #fee2e2;
+  color: #b91c1c;
+}
+
+.skill-row button:hover {
+  background: #fecaca;
+}
+
+button[type="submit"] {
+  width: 100%;
+  margin-top: 28px;
+  padding: 13px;
+  background: #2563eb;
+  color: #ffffff;
+  font-size: 14px;
+}
+
+button[type="submit"]:hover {
+  background: #1d4ed8;
+  transform: translateY(-1px);
+}
+
+/* Mobile */
+
+.add-skill-btn{
+  margin-bottom: 12px;
+}
+
+@media (max-width: 600px) {
+  form {
+    margin: 20px;
+    padding: 24px;
+  }
+
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+}

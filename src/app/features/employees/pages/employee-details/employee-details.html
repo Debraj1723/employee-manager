@@ -1,0 +1,81 @@
+<div class="details-page">
+
+  <button class="back-btn" type="button" (click)="goBack()">
+    ← Back to Employees
+  </button>
+
+  @if (employee()) {
+    <div class="employee-details-card">
+
+      <!-- Header -->
+      <div class="details-header">
+
+        <div class="avatar">
+          {{ employee()?.name?.charAt(0)?.toUpperCase() }}
+        </div>
+
+        <div class="header-info">
+          <span class="eyebrow">EMPLOYEE PROFILE</span>
+          <h1>{{ employee()?.name }}</h1>
+          <p>{{ employee()?.email }}</p>
+        </div>
+
+      </div>
+
+      <!-- Basic Information -->
+      <div class="section">
+        <h2>Employee Information</h2>
+
+        <div class="info-grid">
+
+          <div class="info-item">
+            <span class="label">ROLE</span>
+            <span class="value">{{ employee()?.role }}</span>
+          </div>
+
+          <div class="info-item">
+            <span class="label">DEPARTMENT</span>
+            <span class="value">{{ employee()?.department }}</span>
+          </div>
+
+          <div class="info-item">
+            <span class="label">EMAIL</span>
+            <span class="value">{{ employee()?.email }}</span>
+          </div>
+
+          <div class="info-item">
+            <span class="label">EMPLOYEE ID</span>
+            <span class="value">#{{ employee()?.id }}</span>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Skills -->
+      <div class="section">
+        <h2>Skills</h2>
+
+        <div class="skills">
+          @for (skill of employee()?.skills; track $index) {
+            <span class="skill">{{ skill }}</span>
+          }
+        </div>
+      </div>
+
+    </div>
+
+  } @else {
+
+    <div class="not-found-card">
+      <div class="not-found-icon">👤</div>
+      <h2>Employee not found</h2>
+      <p>The employee you're looking for doesn't exist.</p>
+
+      <button class="back-btn primary" type="button" (click)="goBack()">
+        Back to Employees
+      </button>
+    </div>
+
+  }
+
+</div>
